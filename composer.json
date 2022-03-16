@@ -1,0 +1,21 @@
+{
+    "name": "mateuszmesek-magento2/module-document-data-cms-page",
+    "description": "N/A",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-cms": "*",
+        "mateuszmesek-magento2/module-document-data": "*"
+    },
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "MateuszMesek\\DocumentDataCmsPage\\": "src"
+        }
+    }
+}

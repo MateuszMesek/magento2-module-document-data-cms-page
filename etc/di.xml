@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="MateuszMesek\DocumentData\Command\GetDocumentNodes\ResolverPool">
+        <arguments>
+            <argument name="documents" xsi:type="array">
+                <item name="cms_page" xsi:type="string">MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\CompositeResolver</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\CompositeResolver" type="MateuszMesek\DocumentData\Command\GetDocumentNodes\CompositeResolver">
+        <arguments>
+            <argument name="resolvers" xsi:type="array">
+                <item name="config" xsi:type="string">MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\Config</item>
+                <item name="reflection" xsi:type="string">MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\Reflection</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\Config" type="MateuszMesek\DocumentData\Command\GetDocumentNodes\ConfigResolver">
+        <arguments>
+            <argument name="documentName" xsi:type="string">cms_page</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="MateuszMesek\DocumentDataCmsPage\Command\GetDocumentNodes\Reflection" type="MateuszMesek\DocumentData\Command\GetDocumentNodes\ReflectionResolver">
+        <arguments>
+            <argument name="type" xsi:type="string">Magento\Cms\Api\Data\PageInterface</argument>
+        </arguments>
+    </virtualType>
+</config>
