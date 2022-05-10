@@ -4,6 +4,7 @@ namespace MateuszMesek\DocumentDataCmsPage\Command;
 
 use Magento\Cms\Api\Data\PageInterface;
 use MateuszMesek\DocumentDataApi\Command\GetDocumentDataInterface;
+use MateuszMesek\DocumentDataApi\Data\DocumentDataInterface;
 use MateuszMesek\DocumentDataCmsPage\Data\InputFactory;
 
 class GetDocumentData
@@ -20,7 +21,7 @@ class GetDocumentData
         $this->getDocumentData = $getDocumentData;
     }
 
-    public function execute(PageInterface $page): array
+    public function execute(PageInterface $page): ?DocumentDataInterface
     {
         $input = $this->inputFactory->create(['page' => $page]);
 

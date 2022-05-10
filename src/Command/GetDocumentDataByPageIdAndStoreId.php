@@ -4,6 +4,7 @@ namespace MateuszMesek\DocumentDataCmsPage\Command;
 
 use Magento\Cms\Model\PageFactory;
 use Magento\Cms\Model\ResourceModel\Page as PageResource;
+use MateuszMesek\DocumentDataApi\Data\DocumentDataInterface;
 
 class GetDocumentDataByPageIdAndStoreId
 {
@@ -22,7 +23,7 @@ class GetDocumentDataByPageIdAndStoreId
         $this->getDocumentData = $getDocumentData;
     }
 
-    public function execute(int $pageId, int $storeId): array
+    public function execute(int $pageId, int $storeId): ?DocumentDataInterface
     {
         $page = $this->pageFactory->create();
         $page->setStoreId($storeId);
