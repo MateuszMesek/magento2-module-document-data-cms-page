@@ -1,19 +1,16 @@
 <?php declare(strict_types=1);
 
-namespace MateuszMesek\DocumentDataCmsPage\Data;
+namespace MateuszMesek\DocumentDataCmsPage\Model\Data;
 
 use Magento\Cms\Api\Data\PageInterface;
-use MateuszMesek\DocumentDataApi\InputInterface;
+use MateuszMesek\DocumentDataApi\Model\InputInterface;
 
 class Input implements InputInterface
 {
-    private PageInterface $page;
-
     public function __construct(
-        PageInterface $page
+        private readonly PageInterface $page
     )
     {
-        $this->page = $page;
     }
 
     /**
